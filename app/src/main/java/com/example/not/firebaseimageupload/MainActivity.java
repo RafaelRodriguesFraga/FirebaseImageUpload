@@ -81,9 +81,14 @@ public class MainActivity extends AppCompatActivity {
         mTvShowUploads.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                openImagesActivity();
             }
         });
+    }
+
+    private void openImagesActivity() {
+        Intent intent = new Intent(MainActivity.this, ImagesActivity.class);
+        startActivity(intent);
     }
 
 
