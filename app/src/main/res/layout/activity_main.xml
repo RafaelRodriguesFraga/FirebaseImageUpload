@@ -1,18 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context="com.example.not.firebaseimageupload.MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/btnFile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/choose_file" />
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/etFileName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_toEndOf="@id/btnFile"
+        android:layout_toRightOf="@id/btnFile"
+        android:hint="@string/enter_file_name" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/etFileName"
+        android:layout_above="@id/progressBar"
+        android:layout_marginTop="16dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnUpload"
+        android:layout_marginBottom="26dp"
+      />
+
+    <Button
+        android:id="@+id/btnUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/upload" />
+
+    <TextView
+        android:id="@+id/tvShowUploads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/btnUpload"
+        android:layout_alignTop="@id/btnUpload"
+        android:layout_marginLeft="25dp"
+        android:layout_toEndOf="@id/btnUpload"
+        android:layout_toRightOf="@id/btnUpload"
+        android:gravity="center"
+        android:text="@string/show_uploads"
+        android:textSize="16sp" />
+
+</RelativeLayout>
