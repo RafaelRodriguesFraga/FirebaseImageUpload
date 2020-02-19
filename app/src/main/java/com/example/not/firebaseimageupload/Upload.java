@@ -5,8 +5,8 @@ package com.example.not.firebaseimageupload;
  */
 
 public class Upload {
-    private String mName;
-    private String mImageUrl;
+    private String name;
+    private String imageUrl;
 
     public Upload() {
         //empty constructor needed
@@ -17,23 +17,23 @@ public class Upload {
             mName = "No name";
         }
 
-        this.mName = mName;
-        this.mImageUrl = mImageUrl;
+        this.name = mName;
+        this.imageUrl = mImageUrl;
     }
 
-    public String getmName() {
-        return mName;
+    public String getName() {
+        return name;
     }
 
-    public void setmName(String mName) {
-        this.mName = mName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getmImageUrl() {
-        return mImageUrl;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setmImageUrl(String mImageUrl) {
-        this.mImageUrl = mImageUrl;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

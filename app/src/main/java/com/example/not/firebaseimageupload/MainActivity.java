@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -16,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.not.firebaseimageupload.Adapter.ImageAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +28,9 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private Button mBtnUpload;
     private TextView mTvShowUploads;
+    private RecyclerView mRecyclerView;
+
 
     //Firebase Variables
     private StorageReference mStorageReference;
@@ -56,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mBtnUpload = (Button) findViewById(R.id.btnUpload);
         mTvShowUploads = (TextView) findViewById(R.id.tvShowUploads);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+
+
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this);
+//        ImageAdapter adapter = new ImageAdapter(this, mUploads);
+//        mRecyclerView.setAdapter(adapter);
+
 
         mStorageReference = FirebaseStorage.getInstance().getReference("uploads");
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("uploads");
@@ -172,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
                 && data != null && data.getData() != null) {
 
             mImageUri = data.getData();
-            mImageView.setImageURI(mImageUri);
+           Picasso.get().load(mImageUri).into(mImageView);
         }
     }
 
