@@ -1,5 +1,7 @@
 package com.example.not.firebaseimageupload;
 
+import com.google.firebase.database.Exclude;
+
 /**
  * Created by NOT on 19/02/2020.
  */
@@ -7,6 +9,7 @@ package com.example.not.firebaseimageupload;
 public class Upload {
     private String name;
     private String imageUrl;
+    private String key;
 
     public Upload() {
         //empty constructor needed
@@ -35,5 +38,15 @@ public class Upload {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    @Exclude
+    public String getKey() {
+        return key;
+    }
+
+    @Exclude
+    public void setKey(String key) {
+        this.key = key;
     }
 }
