@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private Button mBtnUpload;
     private TextView mTvShowUploads;
-    private RecyclerView mRecyclerView;
-
 
     //Firebase Variables
     private StorageReference mStorageReference;
@@ -64,12 +62,7 @@ public class MainActivity extends AppCompatActivity {
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mBtnUpload = (Button) findViewById(R.id.btnUpload);
         mTvShowUploads = (TextView) findViewById(R.id.tvShowUploads);
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
-
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this);
-//        ImageAdapter adapter = new ImageAdapter(this, mUploads);
-//        mRecyclerView.setAdapter(adapter);
 
 
         mStorageReference = FirebaseStorage.getInstance().getReference("uploads");

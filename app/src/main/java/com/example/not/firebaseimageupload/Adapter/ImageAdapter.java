@@ -38,7 +38,9 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     public void onBindViewHolder(ImageViewHolder holder, int position) {
         Upload uploadCurrent = mUploads.get(position);
         holder.tvName.setText(uploadCurrent.getName());
-        Picasso.get().load(uploadCurrent.getImageUrl())
+        Picasso.get()
+                .load(uploadCurrent.getImageUrl())
+                .placeholder(R.mipmap.ic_launcher)
                 .fit()
                 .centerCrop()
                 .into(holder.imageView);
